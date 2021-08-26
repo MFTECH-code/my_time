@@ -1,4 +1,7 @@
 import React, {useState} from 'react'
+import Footer from './components/Footer/Footer'
+import Form from './components/Form/Form'
+import Header from './components/Header/Header'
 
 
 export default function App() {
@@ -26,28 +29,17 @@ export default function App() {
 
   return (
     <>
-      <header>
-        <h1>My Time</h1>
-        <p>Hora atual: {data}, {time}</p>
-      </header>
+      <Header data={data} time={time}/>
 
-      <section>
-        <h2>Bem vindo!</h2>
-        <p>Solicite sua marcação!</p>
-        <select value={marcacao} onChange={(e) => setMarcacao(e.target.value)}>
-          <option value="inicio" key="inicio">Inicio</option>
-          <option value="pausa" key="pausa">Pausa</option>
-          <option value="fim" key="fim">Fim</option>
-        </select>
-        <button onClick={() => {
-          solicitarMarcacao()
-          setTabelaMarcacoes(marcacoes)
-          }}>Marcar</button>
+      <Form 
+        marcacao={marcacao}
+        setMarcacao={setMarcacao} 
+        tabelaMarcacoes={tabelaMarcacoes}
+        setTabelaMarcacoes={setTabelaMarcacoes}
+        marcacoes={marcacoes} 
+        solicitarMarcacao={solicitarMarcacao}/>
 
-        <div>
-          <p>{tabelaMarcacoes[0].tipoMarcacao} | {tabelaMarcacoes[0].timeMarcaco}</p>
-        </div>
-      </section>
+        <Footer />
     </>
   )
 }
