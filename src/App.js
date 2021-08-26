@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import Footer from './components/Footer/Footer'
 import Form from './components/Form/Form'
 import Header from './components/Header/Header'
+import "./App.css"
 
 
 export default function App() {
